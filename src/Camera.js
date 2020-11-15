@@ -48,6 +48,8 @@ export default class Camera {
         return this;
     }
     snap() {
+        this.canvasElement.width = this.videoElement.videoWidth;
+        this.canvasElement.height = this.videoElement.videoHeight;
         let context = this.canvasElement.getContext('2d');
         context.clearRect(0 , 0, this.canvasElement.width, this.canvasElement.height);
         context.drawImage(this.videoElement, 0, 0, this.canvasElement.width, this.canvasElement.height);
@@ -61,12 +63,7 @@ export default class Camera {
                 let stream = await navigator.mediaDevices.getUserMedia(this.constraints);
                 this.videoElement.srcObject = stream;
                 this.stream = stream;
-                this.videoElement.onLoadedMetaData = (e) => {
-                    this.videoElement.play();
-                    this.canvasElement.width = this.videoElement.videoWidth;
-                    this.canvasElement.height = this.videoElement.videoHeight;
-                    resolve();
-                }
+                resolve();
             }
             catch(error) {
                 console.error('StartCamera', error);
