@@ -1,0 +1,24 @@
+{
+  "name": "easy-js-camera",
+  "version": "1.0.0",
+  "description": "A package which helps with adding camera support to a web application",
+  "main": "Camera.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farhadnowzari/easy-js-camera.git"
+  },
+  "keywords": [
+    "camera",
+    "webcam",
+    "javascript"
+  ],
+  "author": "Farhad Nowzari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farhadnowzari/easy-js-camera/issues"
+  },
+  "homepage": "https://github.com/farhadnowzari/easy-js-camera#readme"
+}
