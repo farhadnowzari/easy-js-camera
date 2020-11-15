@@ -73,7 +73,10 @@ export default class Camera {
     }
     stop() {
         if(!this.stream) return;
-        this.stream.getTracks().foreach(track => track.stop());
+        let tracks = this.stream.getTracks();
+        if(tracks) {
+            tracks.forEach(track => track.stop());
+        }
     }
     switch() {
         return new Promise(async (resolve, reject) => {
