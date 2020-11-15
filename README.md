@@ -2,14 +2,14 @@
 This package helps you to add camera support to your web application easily and support front and rear camera out of the box.
 
 ```
-npm install js-camera
+npm install easy-js-camera
 ```
 
 # Usage
 Import the Camera class as follow,
 
 ```
-import Camera from 'js-camera';
+import Camera from 'easy-js-camera';
 ```
 To be able to access to all Video Inputs you first need to get the permission from the user. <br>
 **Note:** On some devices it is not needed to first get the permission but it is better to do that first since on some devices if the permission is not granted it doesn't return all the devices.
@@ -25,7 +25,7 @@ Camera
 ```
 **Note:** In order to make sure that the browser supports MediaDevices you can do as follow.
 ```
-import Camera from 'js-camera';
+import Camera from 'easy-js-camera';
 
 Camera.isCameraSupported();
 ```
