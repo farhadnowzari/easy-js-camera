@@ -6,14 +6,12 @@ npm install easy-js-camera
 ```
 
 # Usage
-Import the Camera class as follow,
-
-Add your video and canvas as follow:
+Add your video and canvas as follow,
 ```
 <video autoplay playsinline></video>
 <canvas></canvas>
 ```
-
+Import the Camera class as follow,
 ```
 import Camera from 'easy-js-camera';
 ```
