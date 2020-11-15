@@ -14,8 +14,10 @@ import Camera from 'easy-js-camera';
 To be able to access to all Video Inputs you first need to get the permission from the user. <br>
 **Note:** On some devices it is not needed to first get the permission but it is better to do that first since on some devices if the permission is not granted it doesn't return all the devices.
 ```
+var video = document.getElementsByTagName('video')[0];
+var canvas = document.getElementsByTagName('canvas')[0];
 Camera
-    .tryInvokePermission()
+    .tryInvokePermission(video, canvas)
     .then(camera => {
         camera.start()
     })

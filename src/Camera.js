@@ -58,7 +58,7 @@ export default class Camera {
         return new Promise(async (resolve, reject) => {
             try {
                 await this.getDevices();
-                let stream = navigator.mediaDevices.getUserMedia(this.constraints);
+                let stream = await navigator.mediaDevices.getUserMedia(this.constraints);
                 this.videoElement.srcObject = stream;
                 this.stream = stream;
                 this.videoElement.onLoadedMetaData = (e) => {

@@ -1,8 +1,8 @@
 {
   "name": "easy-js-camera",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A package which helps with adding camera support to a web application",
-  "main": "Camera.js",
+  "main": "src/Camera.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
