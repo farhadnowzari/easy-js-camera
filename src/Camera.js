@@ -70,7 +70,7 @@ export default class Camera {
         return new Promise(async (resolve, reject) => {
             try {
                 await this.getDevices();
-                console.log('Constraints', this.constraints);
+                console.log('Constraints', this.constraints.getConstraint());
                 let stream = await navigator.mediaDevices.getUserMedia(this.constraints.getConstraint());
                 this.videoElement.srcObject = stream;
                 this.stream = stream;
@@ -86,8 +86,6 @@ export default class Camera {
         if(!this.stream) return;
         let tracks = this.videoElement.srcObject.getTracks();
         tracks.forEach(track => track.stop());
-        this.videoElement.srcObject = null;
-        this.stream = null;
     }
     switch() {
         return new Promise(async (resolve, reject) => {
