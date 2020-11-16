@@ -53,7 +53,7 @@ export default class Camera {
         let context = this.canvasElement.getContext('2d');
         context.clearRect(0 , 0, this.canvasElement.width, this.canvasElement.height);
         context.drawImage(this.videoElement, 0, 0, this.canvasElement.width, this.canvasElement.height);
-        let data = this.canvasElement.toDataUrl('image/png');
+        let data = this.canvasElement.toDataURL('image/png');
         return data;
     }
     start() {
