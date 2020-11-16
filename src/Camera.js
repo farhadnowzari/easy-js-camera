@@ -73,10 +73,10 @@ export default class Camera {
     }
     stop() {
         if(!this.stream) return;
-        let tracks = this.stream.getTracks();
-        if(tracks) {
-            tracks.forEach(track => track.stop());
-        }
+        let tracks = this.videoElement.srcObject.getTracks();
+        tracks.forEach(track => track.stop());
+        this.videoElement.srcObject = null;
+        this.stream = null;
     }
     switch() {
         return new Promise(async (resolve, reject) => {
