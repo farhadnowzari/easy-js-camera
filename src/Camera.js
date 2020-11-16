@@ -9,13 +9,17 @@ class Constraints {
     }
     switchFacingMode() {
         if(this.video.facingMode === 'user') {
-            this.video.facingMode = {
-                exact: 'environment'
-            }
+            this.video.facingMode = 'environment';
         } else {
             this.video.facingMode = 'user';
         }
         return this;
+    }
+    getConstraint() {
+        return {
+            video: this.video,
+            audio: this.audio
+        }
     }
 }
 
@@ -67,7 +71,7 @@ export default class Camera {
             try {
                 await this.getDevices();
                 console.log('Constraints', this.constraints);
-                let stream = await navigator.mediaDevices.getUserMedia(this.constraints);
+                let stream = await navigator.mediaDevices.getUserMedia(this.constraints.getConstraint());
                 this.videoElement.srcObject = stream;
                 this.stream = stream;
                 resolve();
