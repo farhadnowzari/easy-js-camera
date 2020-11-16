@@ -48,8 +48,8 @@ export default class Camera {
         return this;
     }
     snap() {
-        this.canvasElement.width = this.videoElement.videoWidth;
-        this.canvasElement.height = this.videoElement.videoHeight;
+        this.canvasElement.width = this.videoElement.scrollWidth;
+        this.canvasElement.height = this.videoElement.scrollHeight;
         let context = this.canvasElement.getContext('2d');
         context.clearRect(0 , 0, this.canvasElement.width, this.canvasElement.height);
         context.drawImage(this.videoElement, 0, 0, this.canvasElement.width, this.canvasElement.height);
