@@ -51,7 +51,7 @@ Camera.isCameraSupported();
 function switchCamera(tryAgain = false) {
     this.camera.switch(tryAgain)
         .catch(() => {
-            if(tryAgain) return; // This line prevent loops. Because the tryAgain may also fail
+            if(tryAgain) return; // This line prevents loops. Because the tryAgain may also fail
             this.camera.switch(true);
         });
 }
