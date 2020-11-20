@@ -1,8 +1,8 @@
 {
   "name": "easy-js-camera",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A package which helps with adding camera support to a web application",
-  "main": "src/Camera.js",
+  "main": "lib/Camera.js",
   "scripts": {
     "prepublish": "babel src -d lib"
   },

@@ -1,15 +1,19 @@
 import CameraModel from "./CameraModel";
 
-class Constraints {
+export class Constraints {
     constructor() {
         this.video = {
             facingMode: 'user'
         };
         this.audio = false;
     }
-    switchFacingMode() {
+    switchFacingMode(tryAgain = false) {
         if(this.video.facingMode === 'user') {
             this.video.facingMode = 'environment';
+        } else if(tryAgain) {
+            this.video.facingMode = {
+                exact: 'environment'
+            }
         } else {
             this.video.facingMode = 'user';
         }
@@ -70,7 +74,6 @@ export default class Camera {
         return new Promise(async (resolve, reject) => {
             try {
                 await this.getDevices();
-                console.log('Constraints', this.constraints.getConstraint());
                 let stream = await navigator.mediaDevices.getUserMedia(this.constraints.getConstraint());
                 this.videoElement.srcObject = stream;
                 this.stream = stream;
@@ -87,9 +90,9 @@ export default class Camera {
         let tracks = this.videoElement.srcObject.getTracks();
         tracks.forEach(track => track.stop());
     }
-    switch() {
+    switch(tryAgain = false) {
         return new Promise(async (resolve, reject) => {
-            this.constraints = this.constraints.switchFacingMode();
+            this.constraints = this.constraints.switchFacingMode(tryAgain);
             this.stop();
             try {
                 await this.start();
