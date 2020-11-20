@@ -46,4 +46,13 @@ Camera.isCameraSupported();
 * **snap:** It is the `fun` part. This method will take a picture and will return it as a base64 string.
 * **start:** This method starts the camera and will return a promise for the result of the action.
 * **stop:** This method is responsible for stoping the stream.
-* **switch:** This method switches the camera between `front` and `rear`. This method returns a promise. It is better that you disable the switch camera button while it is doing its job because on some phones with `motorized` selfie camera if the user press the button multiple times the camera will hang and will just stickout and no longer works unless he/she restarts the phone.
+* **switch:** This method switches the camera between `front` and `rear`. This method returns a promise. It is better that you disable the switch camera button while it is doing its job because on some phones with `motorized` selfie camera if the user press the button multiple times the camera will hang and will just stickout and no longer works unless he/she restarts the phone. Please **Note** that this method accept a boolean which is called `tryAgain` and it basically tries to access the rear camera. Sometime the rear camera is not accessible and on catch you can do something like below
+```
+function switchCamera(tryAgain = false) {
+    this.camera.switch(tryAgain)
+        .catch(() => {
+            if(tryAgain) return; // This line prevent loops. Because the tryAgain may also fail
+            this.camera.switch(true);
+        });
+}
+```
