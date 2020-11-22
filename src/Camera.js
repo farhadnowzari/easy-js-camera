@@ -81,7 +81,7 @@ export default class Camera {
      */
     snapAsBlob() {
         this.snap();
-        new Promise((resolve) => {
+        return new Promise((resolve) => {
             this.canvasElement.toBlob((blob) => {
                 resolve(blob);
             }, 'image/png', 1);
