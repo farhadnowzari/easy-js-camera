@@ -1,5 +1,4 @@
 import CameraModel from "./CameraModel";
-import OutputType from './OutputType';
 export class Constraints {
     constructor() {
         this.video = {
