@@ -1,5 +1,5 @@
 import CameraModel from "./CameraModel";
-
+import OutputType from './OutputType';
 export class Constraints {
     constructor() {
         this.video = {
@@ -67,8 +67,26 @@ export default class Camera {
         let context = this.canvasElement.getContext('2d');
         context.clearRect(0 , 0, this.canvasElement.width, this.canvasElement.height);
         context.drawImage(this.videoElement, 0, 0, this.canvasElement.width, this.canvasElement.height);
+        return this.canvasElement;
+    }
+    /**
+     * @return String
+     */
+    snapAsBase64() {
+        this.snap();
         let data = this.canvasElement.toDataURL('image/png');
         return data;
+    }
+    /**
+     * @return Promise
+     */
+    snapAsBlob() {
+        this.snap();
+        new Promise((resolve) => {
+            this.canvasElement.toBlob((blob) => {
+                resolve(blob);
+            }, 'image/png', 1);
+        });
     }
     start() {
         return new Promise(async (resolve, reject) => {
