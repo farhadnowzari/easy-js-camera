@@ -103,9 +103,10 @@ export default class Camera {
         });
     }
     stop() {
-        if(!this.stream) return;
+        if(!this.videoElement && !this.videoElement.srcObject) return;
         let tracks = this.videoElement.srcObject.getTracks();
         tracks.forEach(track => track.stop());
+        this.videoElement.srcObject = null;
     }
     switch(tryAgain = false) {
         return new Promise(async (resolve, reject) => {
