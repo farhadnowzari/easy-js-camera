@@ -4,7 +4,7 @@ This package helps you to add camera support to your web application easily and 
 ```
 npm install easy-js-camera
 ```
-
+**Note:** For `typescript` version please check here, <a href="https://github.com/farhadnowzari/easy-ts-camera">easy-ts-camera</a>
 # Usage
 Add your video and canvas as follow,
 ```
